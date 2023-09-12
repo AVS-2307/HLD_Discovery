@@ -12,3 +12,5 @@ main. Task for checking sector_keys with weak coverage zones and HLD.
    3.4 оставляем только те, где sector_key_enh имеет значения.
 5. Из файла Enhance_req_GU выбираем те строки, которые есть в п.3.4 и вставляем их в HLD_емкость на листы sites и entrances соответственно.
    Для листа sites файла HLD_емкость из файла results берем данные с листа merge result, объединяем в одну строку.
+
+HLD_sectorKey.py - checking presence of Technical proposals both in HLD and in BSSI. 
