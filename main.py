@@ -67,8 +67,8 @@ df_choice = get_cells_weak_coverage_choice()
 df_ecell_list = get_ecells()
 
 
+# по eNodeB ID-Cell ID в Weak_Coverage_choice в EcellsList находим sector_key
 def get_sector_key(df_choice: df_choice, df_ecell_list: df_ecell_list):
-    # по eNodeB ID-Cell ID в Weak_Coverage_choice в EcellsList находим sector_key
     df_sector_key_weak_coverage = (df_choice.merge(df_ecell_list,
                                                    on='eNodeB ID-Cell ID',
                                                    how='left',
@@ -89,7 +89,9 @@ df_res_capacity = get_steps()
 df_sector_key_weak_coverage = get_sector_key(df_choice, df_ecell_list)
 
 
-def get_ecells_enhance_required(df_res_capacity: df_res_capacity, df_sector_key_weak_coverage: df_sector_key_weak_coverage):
+# получим секторы, где плохое покрытие и которые требуют расширения
+def get_ecells_enhance_required(df_res_capacity: df_res_capacity,
+                                df_sector_key_weak_coverage: df_sector_key_weak_coverage):
     df_sector_key_enh_req = (df_res_capacity.merge(df_sector_key_weak_coverage,
                                                    left_on='sector_key',
                                                    right_on='sector_key_new',
