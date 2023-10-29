@@ -143,9 +143,6 @@ cols_to_move = ['Стандарт', 'Филиал', 'Номер позиции']
 # перемещение колонок в начало
 result = result[cols_to_move + [x for x in result.columns if x not in cols_to_move]]
 
-result['Sector_key'] = result['Sector_key'].str.slice(0,10)
-print(result['Sector_key'])
-
 
 # подкрашиваем несовпадающие ТР колонок
 def highlight(df):
